@@ -1,0 +1,19 @@
+{
+    "name": "fanqingxuan/di",
+    "authors": [
+        {
+            "name": "json",
+            "email": "fxj@acewill.cn"
+        }
+    ],
+    "require": {
+        "php": ">=7.0"  
+      },
+     "autoload": {
+        "psr-4": {
+          "Json\\": "src/Json"
+        }
+      },
+      "license": "MIT",
+      "minimum-stability": "dev"
+}
