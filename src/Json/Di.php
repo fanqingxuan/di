@@ -226,7 +226,13 @@ class Di implements DiInterface
      */
     public function getService($name)
     {
-        return $this->getRaw($name);
+        if (!isset($this->services[$name]))  {
+            throw new Exception(
+                "Service '" . $name . "' wasn't found in the dependency injection container"
+            );
+        }
+        $service = $this->services[$name];
+        return $service;
     }
 
     /**

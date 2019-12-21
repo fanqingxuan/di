@@ -10,18 +10,6 @@ use \JsonSerializable;
 use \Serializable;
 use \Traversable;
 
-/**
- * `Json\Config\Collection` is a supercharged object oriented array. It implements:
- * - [ArrayAccess](https://www.php.net/manual/en/class.arrayaccess.php)
- * - [Countable](https://www.php.net/manual/en/class.countable.php)
- * - [IteratorAggregate](https://www.php.net/manual/en/class.iteratoraggregate.php)
- * - [JsonSerializable](https://www.php.net/manual/en/class.jsonserializable.php)
- * - [Serializable](https://www.php.net/manual/en/class.serializable.php)
- *
- * It can be used in any part of the application that needs collection of data
- * Such implementations are for instance accessing globals `$_GET`, `$_POST`
- * etc.
- */
 class Collection implements
     ArrayAccess,
     Countable,
