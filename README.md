@@ -295,6 +295,23 @@ $container['db'] = [
 ]
 ```
 
+### Property Syntax Usage
+
+We can inject the object with the property usage. Actually,it use the magic methd to realize it.
+
+```php
+$container->db = new StdClass;
+$container->db = function() {
+    return new StdClass;
+}
+$container->db = StdClass::class;
+$container->db = [
+    'className'	=>	'stdClass'
+];
+```
+
+
+
 ### Get Services
 
 - get method
@@ -314,6 +331,14 @@ $container['db'] = [
   ```php
   $container['db'];
   ```
+
+- property syntax
+
+  ```
+  $container->db;
+  ```
+
+  
 
 ### Shared Services
 

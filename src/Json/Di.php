@@ -462,4 +462,46 @@ class Di implements DiInterface
     {
         return $this->set($name, $definition, true);
     }
+    
+    
+    /**
+     * Allows to obtain a shared service using the instance's property syntax
+     *
+     *```php
+     * var_dump($di->request);
+     *```
+     */
+    public function __get($name)
+    {
+        return $this->getShared($name);
+    }
+
+
+    /**
+     * Allows to register a shared service using the instance's property syntax
+     *
+     *```php
+     * $di->request = new Request();
+     *```
+     */
+    public function __set($name, $definition)
+    {
+        $this->setShared($name, $definition);
+    }
+
+    /**
+     * Removes a service from the services container using the instance's property syntax
+     */
+    public function __unset($name)
+    {
+        $this->remove($name);
+    }
+    
+    /**
+     * Check if a service is registered using the instance's property syntax
+     */
+    public function __isset($name)
+    {
+        return $this->has($name);
+    }
 }
