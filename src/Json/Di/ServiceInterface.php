@@ -1,6 +1,6 @@
 <?php
 
-namespace Json\DI;
+namespace Json\Di;
 
 /**
  * Represents a service in the services container

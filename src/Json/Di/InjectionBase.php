@@ -1,8 +1,8 @@
 <?php
 
-namespace Json\DI;
+namespace Json\Di;
 
-use Json\DI\DiInterface;
+use Json\Di\DiInterface;
 
 /**
  * 如果一个类要自动注入di类，则继承该类
@@ -14,14 +14,14 @@ class InjectionBase
     /**
      * Sets the dependency injector
      */
-    public function setDI(DiInterface $container){
+    public function setDi(DiInterface $container){
     	$this->container = $container;
     }
 
     /**
      * Returns the internal dependency injector
      */
-    public function getDI() {
+    public function getDi() {
     	return $this->container;
     }
 }

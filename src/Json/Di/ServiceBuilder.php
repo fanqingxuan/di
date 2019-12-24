@@ -1,12 +1,12 @@
 <?php
 
-namespace Json\DI;
+namespace Json\Di;
 
-use Json\DI\DIInterface;
+use Json\Di\DiInterface;
 use \Exception;
 
 /**
- * Json\DI\ServiceBuilder
+ * Json\Di\ServiceBuilder
  *
  * This class builds instances based on complex definitions
  */
@@ -240,7 +240,7 @@ class ServiceBuilder
 
             /**
              * If the argument type is 'service', we obtain the service from the
-             * DI
+             * Di
              */
             case "service":
                 if (!isset($argument["name"])) {

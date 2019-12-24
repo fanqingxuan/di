@@ -43,7 +43,7 @@ class Di implements DiInterface
 
 
     /**
-     * Latest DI build
+     * Latest Di build
      */
     protected static $_default;
 
@@ -143,7 +143,7 @@ class Di implements DiInterface
 
         if ( gettype($instance) != "object") {
             if ($service !== null) {
-                // The service is registered in the DI.
+                // The service is registered in the Di.
                 try {
                     $instance = $service->resolve($parameters, $this);
                 } catch (Exception $e) {
@@ -158,8 +158,8 @@ class Di implements DiInterface
                 }
             } else {
                 /**
-                 * The DI also acts as builder for any class even if it isn't
-                 * defined in the DI
+                 * The Di also acts as builder for any class even if it isn't
+                 * defined in the Di
                  */
                 if (!class_exists($name)) {
                     throw new Exception(
@@ -187,19 +187,19 @@ class Di implements DiInterface
         }
 
         /**
-         * Pass the DI to the instance if it implements
+         * Pass the Di to the instance if it implements
          * \Json\Di\InjectionBase
          */
         if (gettype($instance) == "object") {
             if ($instance instanceof InjectionBase) {
-                $instance->setDI($this);
+                $instance->setDi($this);
             }
         }
         return $instance;
     }
 
     /**
-     * Return the latest DI created
+     * Return the latest Di created
      */
     public static function getDefault()
     {
@@ -236,7 +236,7 @@ class Di implements DiInterface
     }
 
     /**
-     * Return the services registered in the DI
+     * Return the services registered in the Di
      */
     public function getServices()
     {
@@ -244,7 +244,7 @@ class Di implements DiInterface
     }
 
     /**
-     * Resolves a service, the resolved service is stored in the DI, subsequent
+     * Resolves a service, the resolved service is stored in the Di, subsequent
      * requests for this service will return the same instance
      */
     public function getShared($name, $parameters = null)
@@ -329,7 +329,7 @@ class Di implements DiInterface
 
 
     /**
-     * Check whether the DI contains a service by a name
+     * Check whether the Di contains a service by a name
      */
     public function has($name)
     {
@@ -418,7 +418,7 @@ class Di implements DiInterface
     }
 
     /**
-     * Resets the internal default DI
+     * Resets the internal default Di
      */
     public static function reset()
     {
