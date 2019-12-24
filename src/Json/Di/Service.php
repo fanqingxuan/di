@@ -1,16 +1,16 @@
 <?php
 
-namespace Json\DI;
+namespace Json\Di;
 
 use \Closure;
-use Json\DI\ServiceBuilder;
-use Json\DI\ServiceInterface;
+use Json\Di\ServiceBuilder;
+use Json\Di\ServiceInterface;
 
 /**
  * Represents individually a service in the services container
  *
  *```php
- * $service = new \Json\DI\Service(
+ * $service = new \Json\Di\Service(
  *     "request",
  *     \Json\Request::class
  * );
@@ -35,7 +35,7 @@ class Service implements ServiceInterface
     protected $sharedInstance;
 
     /**
-     * Json\DI\Service
+     * Json\Di\Service
      */
     final public function __construct($definition, $shared = false)
     {
@@ -156,7 +156,7 @@ class Service implements ServiceInterface
                 if ($definition instanceof Closure) {
 
                     /**
-                     * Bounds the closure to the current DI
+                     * Bounds the closure to the current Di
                      */
                     if (gettype($container) == "object") {
                         $definition = Closure::bind($definition, $container);

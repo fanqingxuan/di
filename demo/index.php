@@ -148,8 +148,8 @@ $container->set("T",Hello::class);
 var_dump($container->get("T")->getDi()->get('hello')->name);
 
 //文件服务类方式注入
-require_once "Providers\ConfigProvider.php";
-require_once "Providers\RegistryProvider.php";
+require_once "Providers/ConfigProvider.php";
+require_once "Providers/RegistryProvider.php";
 $services = include('config/providers.php');
 foreach ($services as $service) {
     $container->register(new $service());

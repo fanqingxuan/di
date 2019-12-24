@@ -1,8 +1,8 @@
 <?php
 
-namespace Json\DI;
+namespace Json\Di;
 
-use Json\DI\DiInterface;
+use Json\Di\DiInterface;
 
 /**
  * Should be implemented by service providers, or such components, which

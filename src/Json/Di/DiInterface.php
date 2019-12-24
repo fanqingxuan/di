@@ -1,6 +1,6 @@
 <?php
 
-namespace Json\DI;
+namespace Json\Di;
 
 use \ArrayAccess;
 
@@ -24,7 +24,7 @@ interface DiInterface extends ArrayAccess
     public function get($name, $parameters = null);
 
     /**
-     * Return the last DI created
+     * Return the last Di created
      */
     public static function getDefault();
 
@@ -39,7 +39,7 @@ interface DiInterface extends ArrayAccess
     public function getService($name);
 
     /**
-     * Return the services registered in the DI
+     * Return the services registered in the Di
      */
     public function getServices();
 
@@ -49,7 +49,7 @@ interface DiInterface extends ArrayAccess
     public function getShared($name, $parameters = null);
 
     /**
-     * Check whether the DI contains a service by a name
+     * Check whether the Di contains a service by a name
      */
     public function has($name);
 
@@ -59,7 +59,7 @@ interface DiInterface extends ArrayAccess
     public function remove($name);
 
     /**
-     * Resets the internal default DI
+     * Resets the internal default Di
      */
     public static function reset();
 
