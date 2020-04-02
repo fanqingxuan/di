@@ -2,7 +2,7 @@
 
 This is a extension which implements Dependency Injection, it's itself a container and it  implements the 
 
-Inversion of Control pattern.
+Inversion of Control pattern. 
 ### enviroment requirement 
 **php7.0+**
 
@@ -11,6 +11,8 @@ Inversion of Control pattern.
 ```php+HTML
 composer require fanqingxuan/di 
 ```
+
+If you want install it as php extension, please see **[di-ext](https://github.com/fanqingxuan/di-ext)**. The same usage with this package.
 
 ### Basic Usage 
 
