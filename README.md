@@ -1,15 +1,15 @@
+## a IOC container for php 
 
-
-## a IOC container implement with php
-
-This is a component which implements Dependency Injection, it's itself a container and it  implements the 
+This is a extension which implements Dependency Injection, it's itself a container and it  implements the 
 
 Inversion of Control pattern.
+### enviroment requirement 
+**php7.0+**
 
-### Install The Package
+### Install 
 
 ```php+HTML
-composer install fanqingxuan/di
+composer require fanqingxuan/di 
 ```
 
 ### Basic Usage 
@@ -17,24 +17,20 @@ composer install fanqingxuan/di
 ```php
 require_once 'vendor/autoload.php';
 
-use Json\Di;
+use JsonTools\Di;
 
-$container = new Container;
-
-class Test {
-
+class Test
+{
 }
 
+$di = new Di;
 //注入的方式
-$container->set('test','Test');
-
-$container->set("test2",function() {
-	return new Test;
+$di->set('test', 'Test');
+$di->set("test2", function () {
+    return new Test;
 });
-
-$container->set("test3",Test::class);
-
-$container->set('test4',new Test);
+$di->set("test3", Test::class);
+$di->set('test4', new Test);
 
 ```
 
@@ -43,35 +39,35 @@ like you can see,there are serveral ways to register services as the follow list
 - string 
 
   ```php
-  $container->set('test','Test');
-  $container->set("test3",Test::class);
+  $di->set('test','Test');
+  $di->set("test3",Test::class);
   ```
 
 - object instance
 
   ```php
-  $container->set('test5',new Test);
+  $di->set('test5',new Test);
   ```
 
 - Closures/Anonymous functions
 
   ```php
-  $container->set("test2",function() {
+  $di->set("test2",function() {
   	return new Test;
   });
   ```
+  
+  
 
 You can pass additonal parameters to closure function.
 
 ```php
-require_once '../vendor/autoload.php';
+require_once 'vendor/autoload.php';
 
-use Json\Di;
-use Json\Config;
-
-$container = new Di;
-
-$container->set('config',new Config(
+use JsonTools\Di;
+use JsonTools\Config;
+$di = new Di;
+$di->set('config',new Config(
     [
         'database'  =>  [
             'host'      =>  'localhost',
@@ -80,7 +76,6 @@ $container->set('config',new Config(
         ]
     ]
 ));
-
 class MysqlDb
 {
     public function __construct($config) 
@@ -88,8 +83,7 @@ class MysqlDb
         print_r($config);
     }
 }
-
-$container->set('db',function () {
+$di->set('db',function () {
     return new MysqlDb($this->get('config')->database);//get the database config from container
 });
 ```
@@ -102,7 +96,7 @@ $config = [
     'username'  =>  'root',
     'password'  =>  '111111'
 ];
-$container->set('db',function () use ($config) {
+$di->set('db',function () use ($config) {
     return new MysqlDb($config);
 });
 ```
@@ -130,13 +124,13 @@ $container->set('db',function () use ($config) {
   We can register the service this way.
 
   ```php
-  $container->set(
+  $di->set(
       'userDao',
       [
   		'className'	=>	UserDao::class
       ]
   );
-  $container->set(
+  $di->set(
   	'userService',
       [
           'className'	=>	UserService::class,
@@ -179,7 +173,7 @@ class UserService
 A service with setter injection can be registered as follows:
 
 ```php
-$container->set(
+$di->set(
     'userService',
     [
         'className'	=>	'UserService',
@@ -223,7 +217,7 @@ class UserService
 A service with properties injection can be registered as follows
 
 ```php
-$container->set(
+$di->set(
 	'userService',
     [
         'className'	=>	UserService::class,
@@ -273,8 +267,11 @@ return [
 We can inject it to container as follows:
 
 ```php
+require_once 'vendor/autoload.php';
+
 use Json/Config;
 
+$di = new Di;
 $di->loadFromPhp('service.php');
 ```
 
@@ -285,12 +282,12 @@ $di->loadFromPhp('service.php');
 We introduce the usage with the set function above. In fact,the array syntax is also allowed to register as services.
 
 ```php
-$container['db'] = new StdClass;
-$constainer['db'] = function() {
+$di['db'] = new StdClass;
+$di['db'] = function() {
     return new StdClass;
 }
-$container['db'] = 'StdClass';
-$container['db'] = [
+$di['db'] = 'StdClass';
+$di['db'] = [
     'className'	=>	'StdClass'
 ]
 ```
@@ -300,12 +297,12 @@ $container['db'] = [
 We can inject the object with the property usage. Actually,it use the magic methd to realize it.
 
 ```php
-$container->db = new StdClass;
-$container->db = function() {
+$di->db = new StdClass;
+$di->db = function() {
     return new StdClass;
 }
-$container->db = StdClass::class;
-$container->db = [
+$di->db = StdClass::class;
+$di->db = [
     'className'	=>	'stdClass'
 ];
 ```
@@ -317,35 +314,35 @@ $container->db = [
 - get method
 
   ```php
-  $container->get('db');
+  $di->get('db');
   ```
 
 - magic method
 
   ```php
-  $container->getDb();
+  $di->getDb();
   ```
 
 - array-access syntax
 
   ```php
-  $container['db'];
+  $di['db'];
   ```
 
 - property syntax
 
   ```
-  $container->db;
+  $di->db;
   ```
 
-  
+
 
 ### Shared Services
 
 Services can be registered as ‘shared’ services this means that they always will act as singletons. Once the service is resolved for the first time the same instance of it is returned every time.
 
 ```php
-$container->setShared(
+$di->setShared(
 	'db',
     function() {
         return new MysqlDb();
@@ -356,7 +353,7 @@ $container->setShared(
 or use the set method with its third parameter as 'true'.
 
 ```php
-$container->set(
+$di->set(
 	'db',
     function() {
         return new MysqlDb();
@@ -375,11 +372,9 @@ class Test
     
 }
 //register service
-$container->set('test','StdClass');
-
+$di->set('test','StdClass');
 //get service
-$test = $container->getService('test');
-
+$test = $di->getService('test');
 //change the definition
 $test->setDefinition(function() {
     return new Test;
@@ -390,39 +385,56 @@ $test->resolve();
 
 ### Automatic Inject the DI Container into the service
 
-DI Container is used for inject other service into it. but sometimes the service itself need the the other instance from the container. If a class or component requires the DI itself to locate services, the DI can automatically inject itself to the instances it creates, to do this, you need to extends the Json\Di\InjectionBase class in your classes: 
+DI Container is used for inject other service into it. but sometimes the service itself need the the other instance from the container. If a class or component requires the DI itself to locate services, the DI can automatically inject itself to the instances it creates, to do this, you need to extends the JsonTools\Di\AbstractInjectionAware class in your classes: 
 
 ```php
-class HomeController extends InjectionBase
+require_once 'vendor/autoload.php';
+
+use JsonTools\Di;
+use JsonTools\Di\AbstractInjectionAware;
+
+class Mysql
 {
-    public function say()
-    {
-        $this->container->get('db')->select();
-    }
+    public function select()
+    {   
+       return "this is select";
+    }   
 }
 
-$conatainer->set('home',HomeController::class);
+class HomeController extends AbstractInjectionAware
+{
+    public function say()
+    {   
+       echo $this->container->get('db')->select();
+    }   
+}
+
+$di = new Di; 
+$di->set('db', Mysql::class);
+
+$di->set('home', HomeController::class);
+$di->get('home')->say();
 ```
 
 ### Service Providers
 
-Using the Json\Di\ServiceProviderInterface  you now register services by context. You can move all your $di->set()` calls to classes as follows.
-
+Using the JsonTools\Di\ServiceProviderInterface  you now register services by context. You can move all your `$di->set()` calls to classes as follows. **Notice return void for the register function**.
 ```php
-use Json\Di\ServiceProviderInterface;
-use Json\Di\DiInterface;
+require_once 'vendor/autoload.php';
 
+use JsonTools\Di\DiInterface;
+use JsonTools\Di\ServiceProviderInterface;
 class SessionServiceProvider implements ServiceProviderInterface 
 {
-    public function register(DiInterface $container) 
+    public function register(DiInterface $di):void
     {
-        $container->set(
+        $di->set(
         	'session',
             'SessionClass'
         );
     }
 }
-
-$container->register(new SessionServiceProvider());
-$container->get('session');
+$di->register(new SessionServiceProvider());
+$di->get('session');
 ```
+

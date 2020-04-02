@@ -7,11 +7,11 @@
         }
     ],
     "require": {
-        "php": ">=7.0"  
+        "php": ">=7.0"
       },
      "autoload": {
         "psr-4": {
-          "Json\\": "src/Json"
+          "JsonTools\\": "src/JsonTools"
         }
       },
       "license": "MIT",
