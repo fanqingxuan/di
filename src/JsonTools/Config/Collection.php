@@ -278,7 +278,7 @@ class Collection implements
      *
      * See [rfc4627](https://www.ietf.org/rfc/rfc4627.txt)
      */
-    public function toJsonTools($options = 79)
+    public function toJson($options = 79)
     {
         return json_encode($this->toArray(), $options);
     }
