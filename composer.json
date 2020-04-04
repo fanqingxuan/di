@@ -11,7 +11,7 @@
       },
      "autoload": {
         "psr-4": {
-          "JsonTools\\": "src/JsonTools"
+          "JsonDi\\": "src/JsonDi"
         }
       },
       "license": "MIT",

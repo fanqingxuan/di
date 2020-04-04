@@ -1,8 +1,8 @@
 <?php
 
-namespace JsonTools\Di;
+namespace JsonDi\Di;
 
-use JsonTools\Di\DiInterface;
+use JsonDi\Di\DiInterface;
 
 /**
  * 如果一个类要自动注入di类，则继承该类

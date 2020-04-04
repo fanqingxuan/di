@@ -2,8 +2,8 @@
 
 require_once '../vendor/autoload.php';
 
-use JsonTools\Di;
-use JsonTools\Di\AbstractInjectionAware;
+use JsonDi\Di;
+use JsonDi\Di\AbstractInjectionAware;
 
 class Mysql
 {

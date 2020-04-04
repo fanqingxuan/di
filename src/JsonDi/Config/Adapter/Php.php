@@ -1,11 +1,11 @@
 <?php
 
-namespace JsonTools\Config\Adapter;
+namespace JsonDi\Config\Adapter;
 
-use JsonTools\Config;
+use JsonDi\Config;
 
 /**
- * Reads php files and converts them to JsonTools\Config objects.
+ * Reads php files and converts them to JsonDi\Config objects.
  *
  * Given the next configuration file:
  *
@@ -26,7 +26,7 @@ use JsonTools\Config;
  * You can read it as follows:
  *
  *```php
- * use JsonTools\Config\Php;
+ * use JsonDi\Config\Php;
  *
  * $config = new Php("path/config.php");
  *
@@ -36,7 +36,7 @@ use JsonTools\Config;
 class Php extends Config
 {
     /**
-     * JsonTools\Config\Php constructor
+     * JsonDi\Config\Php constructor
      */
     public function __construct($filePath)
     {

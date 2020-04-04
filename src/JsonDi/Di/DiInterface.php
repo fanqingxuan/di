@@ -1,11 +1,11 @@
 <?php
 
-namespace JsonTools\Di;
+namespace JsonDi\Di;
 
 use \ArrayAccess;
 
 /**
- * Interface for JsonTools\Di
+ * Interface for JsonDi\Di
  */
 interface DiInterface extends ArrayAccess
 {
@@ -34,7 +34,7 @@ interface DiInterface extends ArrayAccess
     public function getRaw($name);
 
     /**
-     * Returns the corresponding JsonTools\Di\Service instance for a service
+     * Returns the corresponding JsonDi\Di\Service instance for a service
      */
     public function getService($name);
 
@@ -75,7 +75,7 @@ interface DiInterface extends ArrayAccess
     public static function setDefault($container);
 
     /**
-     * Sets a service using a raw JsonTools\Di\Service definition
+     * Sets a service using a raw JsonDi\Di\Service definition
      */
     public function setRaw($name, $rawDefinition);
 

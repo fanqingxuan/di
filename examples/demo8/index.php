@@ -1,7 +1,7 @@
 <?php
 require_once '../../vendor/autoload.php';
 
-use JsonTools\Di;
+use JsonDi\Di;
 
 require_once 'SessionServiceProvider.php';
 require_once('ConfigServiceProvider.php');

@@ -19,7 +19,7 @@ If you want install it as php extension, please see **[di-ext](https://github.co
 ```php
 require_once 'vendor/autoload.php';
 
-use JsonTools\Di;
+use JsonDi\Di;
 
 class Test
 {
@@ -66,8 +66,8 @@ You can pass additonal parameters to closure function.
 ```php
 require_once 'vendor/autoload.php';
 
-use JsonTools\Di;
-use JsonTools\Config;
+use JsonDi\Di;
+use JsonDi\Config;
 $di = new Di;
 $di->set('config',new Config(
     [
@@ -387,13 +387,13 @@ $test->resolve();
 
 ### Automatic Inject the DI Container into the service
 
-DI Container is used for inject other service into it. but sometimes the service itself need the the other instance from the container. If a class or component requires the DI itself to locate services, the DI can automatically inject itself to the instances it creates, to do this, you need to extends the JsonTools\Di\AbstractInjectionAware class in your classes: 
+DI Container is used for inject other service into it. but sometimes the service itself need the the other instance from the container. If a class or component requires the DI itself to locate services, the DI can automatically inject itself to the instances it creates, to do this, you need to extends the JsonDi\Di\AbstractInjectionAware class in your classes: 
 
 ```php
 require_once 'vendor/autoload.php';
 
-use JsonTools\Di;
-use JsonTools\Di\AbstractInjectionAware;
+use JsonDi\Di;
+use JsonDi\Di\AbstractInjectionAware;
 
 class Mysql
 {
@@ -420,12 +420,12 @@ $di->get('home')->say();
 
 ### Service Providers
 
-Using the JsonTools\Di\ServiceProviderInterface  you now register services by context. You can move all your `$di->set()` calls to classes as follows. **Notice return void for the register function**.
+Using the JsonDi\Di\ServiceProviderInterface  you now register services by context. You can move all your `$di->set()` calls to classes as follows. **Notice return void for the register function**.
 ```php
 require_once 'vendor/autoload.php';
 
-use JsonTools\Di\DiInterface;
-use JsonTools\Di\ServiceProviderInterface;
+use JsonDi\Di\DiInterface;
+use JsonDi\Di\ServiceProviderInterface;
 class SessionServiceProvider implements ServiceProviderInterface 
 {
     public function register(DiInterface $di):void

@@ -1,12 +1,12 @@
 <?php
 
-namespace JsonTools\Di;
+namespace JsonDi\Di;
 
-use JsonTools\Di\DiInterface;
+use JsonDi\Di\DiInterface;
 use \Exception;
 
 /**
- * JsonTools\Di\ServiceBuilder
+ * JsonDi\Di\ServiceBuilder
  *
  * This class builds instances based on complex definitions
  */

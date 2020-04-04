@@ -1,6 +1,6 @@
 <?php
 
-namespace JsonTools\Config;
+namespace JsonDi\Config;
 
 use \ArrayAccess;
 use \ArrayIterator;

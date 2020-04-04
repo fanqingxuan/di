@@ -1,18 +1,18 @@
 <?php
 
-namespace JsonTools;
+namespace JsonDi;
 
-use JsonTools\Config\Collection;
+use JsonDi\Config\Collection;
 use \Exception;
 
 /**
- * `JsonTools\Config` is designed to simplify the access to, and the use of,
+ * `JsonDi\Config` is designed to simplify the access to, and the use of,
  * configuration data within applications. It provides a nested object property
  * based user interface for accessing this configuration data within application
  * code.
  *
  *```php
- * $config = new \JsonTools\Config(
+ * $config = new \JsonDi\Config(
  *     [
  *         "database" => [
  *             "adapter"  => "Mysql",
@@ -52,7 +52,7 @@ class Config extends Collection
      * Merges a configuration into the current one
      *
      *```php
-     * $appConfig = new \JsonTools\Config(
+     * $appConfig = new \JsonDi\Config(
      *     [
      *         "database" => [
      *             "host" => "localhost",

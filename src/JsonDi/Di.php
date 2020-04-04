@@ -1,17 +1,17 @@
 <?php
-namespace JsonTools;
+namespace JsonDi;
 
-use JsonTools\Di\Service;
-use JsonTools\Di\DiInterface;
+use JsonDi\Di\Service;
+use JsonDi\Di\DiInterface;
 use \Exception;
-use JsonTools\Config;
-use JsonTools\Config\Adapter\Php;
-use JsonTools\Di\AbstractInjectionAware;
-use JsonTools\Di\ServiceProviderInterface;
+use JsonDi\Config;
+use JsonDi\Config\Adapter\Php;
+use JsonDi\Di\AbstractInjectionAware;
+use JsonDi\Di\ServiceProviderInterface;
 
 /**
  *```php
- * use JsonTools\Di;
+ * use JsonDi\Di;
  *
  * $di = new Di();
  *
@@ -48,7 +48,7 @@ class Di implements DiInterface
     protected static $_default;
 
     /**
-     * JsonTools\Di constructor
+     * JsonDi\Di constructor
      */
     public function __construct()
     {
@@ -188,7 +188,7 @@ class Di implements DiInterface
 
         /**
          * Pass the Di to the instance if it implements
-         * \JsonTools\Di\AbstractInjectionAware
+         * \JsonDi\Di\AbstractInjectionAware
          */
         if (gettype($instance) == "object") {
             if ($instance instanceof AbstractInjectionAware) {
@@ -222,7 +222,7 @@ class Di implements DiInterface
     }
 
     /**
-     * Returns a JsonTools\Di\Service instance
+     * Returns a JsonDi\Di\Service instance
      */
     public function getService($name)
     {
@@ -379,8 +379,8 @@ class Di implements DiInterface
      * Registers a service provider.
      *
      * ```php
-     * use JsonTools\Di\DiInterface;
-     * use JsonTools\Di\ServiceProviderInterface;
+     * use JsonDi\Di\DiInterface;
+     * use JsonDi\Di\ServiceProviderInterface;
      *
      * class SomeServiceProvider implements ServiceProviderInterface
      * {
@@ -445,7 +445,7 @@ class Di implements DiInterface
 
 
     /**
-     * Sets a service using a raw JsonTools\Di\Service definition
+     * Sets a service using a raw JsonDi\Di\Service definition
      */
     public function setRaw($name, $rawDefinition)
     {

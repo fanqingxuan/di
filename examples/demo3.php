@@ -2,7 +2,7 @@
 
 require_once '../vendor/autoload.php';
 
-use JsonTools\Di;
+use JsonDi\Di;
 
 class UserDao
 {

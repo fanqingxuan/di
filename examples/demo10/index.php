@@ -1,9 +1,9 @@
 <?php
 require_once '../../vendor/autoload.php';
 //di read config from ini or php file
-use JsonTools\Di;
-use JsonTools\Config\Adapter\Ini;
-use JsonTools\Config\Adapter\Php;
+use JsonDi\Di;
+use JsonDi\Config\Adapter\Ini;
+use JsonDi\Config\Adapter\Php;
 
 $di = new Di;
 

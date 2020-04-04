@@ -1,18 +1,18 @@
 <?php
 
-namespace JsonTools\Di;
+namespace JsonDi\Di;
 
 use \Closure;
-use JsonTools\Di\ServiceBuilder;
-use JsonTools\Di\ServiceInterface;
+use JsonDi\Di\ServiceBuilder;
+use JsonDi\Di\ServiceInterface;
 
 /**
  * Represents individually a service in the services container
  *
  *```php
- * $service = new \JsonTools\Di\Service(
+ * $service = new \JsonDi\Di\Service(
  *     "request",
- *     \JsonTools\Request::class
+ *     \JsonDi\Request::class
  * );
  *
  * $request = service->resolve();
@@ -35,7 +35,7 @@ class Service implements ServiceInterface
     protected $sharedInstance;
 
     /**
-     * JsonTools\Di\Service
+     * JsonDi\Di\Service
      */
     final public function __construct($definition, $shared = false)
     {

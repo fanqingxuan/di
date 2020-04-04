@@ -1,12 +1,12 @@
 <?php
 
-namespace JsonTools\Config\Adapter;
+namespace JsonDi\Config\Adapter;
 
-use JsonTools\Config;
+use JsonDi\Config;
 use \Exception;
 
 /**
- * Reads ini files and converts them to JsonTools\Config objects.
+ * Reads ini files and converts them to JsonDi\Config objects.
  *
  * Given the next configuration file:
  *
@@ -22,7 +22,7 @@ use \Exception;
  * You can read it as follows:
  *
  *```php
- * use JsonTools\Config\Ini;
+ * use JsonDi\Config\Ini;
  *
  * $config = new Ini("path/config.ini");
  *
@@ -35,7 +35,7 @@ use \Exception;
  * second parameter as `INI_SCANNER_NORMAL` when calling the constructor:
  *
  * ```php
- * $config = new \JsonTools\Config\Ini(
+ * $config = new \JsonDi\Config\Ini(
  *     "path/config-with-constants.ini",
  *     INI_SCANNER_NORMAL
  * );
