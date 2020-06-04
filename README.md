@@ -1,5 +1,6 @@
+**[中文文档地址](README-Zh.md)**
+
 ## a IOC container for php 
-**[中文文档](README-Zh.md)**
 
 This is a extension which implements Dependency Injection, it's itself a container and it  implements the 
 
